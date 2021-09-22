@@ -11,8 +11,8 @@ remoteConfig.defaultConfig = {
 remoteConfig.fetchAndActivate();
 const welcomeMessage = remoteConfig.getString("welcome_messsage");
 
-const whenSignedIn = document.getElementById('whenSignedIn');
-const whenSignedOut = document.getElementById('whenSignedOut');
+const whenSignedIn = document.getElementsByClassName('whenSignedIn');
+const whenSignedOut = document.getElementsByClassName('whenSignedOut');
 
 const signInBtn = document.getElementById('signInBtn');
 const signOutBtn = document.getElementById('signOutBtn');
@@ -54,19 +54,18 @@ const patientsList = document.getElementById('patientsList');
 
 let patientsRef;
 let unsubscribe;
-
+/*
 // Listen for form submit
-document.getElementById('createPatientForm').addEventListener('submit', submitForm);
+createPatient.addEventListener('submit', submitForm);
 
 function submitForm(e){
     e.preventDefault();
-
     // Get values
     var name = getInputVal('name');
     var email = getInputVal('email'); 
     var phone = getInputVal('phone');
 }
-
+*/
 // Function to get form values
 function getInputVal(id){
     return document.getElementById(id).value;
@@ -117,7 +116,7 @@ auth.onAuthStateChanged(user => {
 
                 });
 
-                thingsList.innerHTML = items.join('');
+                //patientsList.innerHTML = items.join('');
 
             });
 

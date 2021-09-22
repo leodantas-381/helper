@@ -41,33 +41,30 @@
 </head>
 <body>
     <h1> My App </h1>
-    <section id="whenSignedOut">
+    <section class="whenSignedOut">
       <button id="signInBtn">Sign in with Google</button>
     </section>
-    <section id="whenSignedIn" hidden="true">
+    <section class="whenSignedIn" hidden="true">
       <div id="userDetails"></div>
       <button id="signOutBtn">Sign Out</button>
     </section>
     <section>
-      <ul id="patientsList">
-''
-      </ul>
-      <form action="." id="createPatientForm">
+      <form action="." id="createPatientForm" class="whenSignedIn" hidden="true">
         <p>
-          <label for="name"></label>
+          <label for="name">Name</label>
           <input type="text" name="name" id="name">
         </p>
          <p>
-          <label for="email"></label>
+          <label for="email">E-mail</label>
           <input type="text" name="email" id="email">
         </p>  
         <p>
-          <label for="phone"></label>
+          <label for="phone">Phone</label>
           <input type="text" name="phone" id="phone">
         </p>
-        <button type="submit" id="createPatient" id="whenSignedIn" hidden="true">Create Patient</button>
+        <button type="submit" id="createPatient">Create Patient</button>
       </form>
-      <button id="createConsultation" id="whenSignedIn" hidden="true">Create Consultation</button>
+      <button id="createConsultation" class="whenSignedIn" hidden="true">Create Consultation</button>
     </section>
 </body>
 </html>
