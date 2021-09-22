@@ -33,7 +33,7 @@ auth.onAuthStateChanged(user => {
         // signed in
         whenSignedIn.hidden = false;
         whenSignedOut.hidden = true;
-        userDetails.innerHTML = `<h3>${welcomeMessage} ${user.displayName}??</h3> <p>User ID: ${user.uid}</p>`;
+        userDetails.innerHTML = `<h3>${welcomeMessage} ${user.displayName}</h3> <p>User ID: ${user.uid}</p>`;
     } else {
         // not signed in
         whenSignedIn.hidden = true;
