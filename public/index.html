@@ -50,9 +50,23 @@
     </section>
     <section>
       <ul id="patientsList">
-
+''
       </ul>
-      <button id="createPatient" id="whenSignedIn" hidden="true">Create Patient</button>
+      <form action="." id="createPatientForm">
+        <p>
+          <label for="name"></label>
+          <input type="text" name="name" id="name">
+        </p>
+         <p>
+          <label for="email"></label>
+          <input type="text" name="email" id="email">
+        </p>  
+        <p>
+          <label for="phone"></label>
+          <input type="text" name="phone" id="phone">
+        </p>
+        <button type="submit" id="createPatient" id="whenSignedIn" hidden="true">Create Patient</button>
+      </form>
       <button id="createConsultation" id="whenSignedIn" hidden="true">Create Consultation</button>
     </section>
 </body>

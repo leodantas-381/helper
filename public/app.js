@@ -55,35 +55,50 @@ const patientsList = document.getElementById('patientsList');
 let patientsRef;
 let unsubscribe;
 
+// Listen for form submit
+document.getElementById('createPatientForm').addEventListener('submit', submitForm);
+
+function submitForm(e){
+    e.preventDefault();
+
+    // Get values
+    var name = getInputVal('name');
+    var email = getInputVal('email'); 
+    var phone = getInputVal('phone');
+}
+
+// Function to get form values
+function getInputVal(id){
+    return document.getElementById(id).value;
+}
+
 auth.onAuthStateChanged(user => {
 
     if (user) {
 
         // Database Reference
-        thingsRef = db.collection('patients')
+        patientsRef = db.collection('patients')
 
-        createThing.onclick = () => {
+        createPatient.onclick = () => {
 
             const { serverTimestamp } = firebase.firestore.FieldValue;
 
             patientsRef.add({
                 uid: user.uid,
-                name: faker.commerce.productName(),
-                createdAt: serverTimestamp()
+                createdAt: serverTimestamp(),
+                //idPatient: 'SKU_123',
+                //cpfPatient: 'jeggings',
+                namePatient: getInputVal('name'),
+                phonePatient: getInputVal('phone'),
+                //dobPatient: 'black',
+                //occupationPatient: 'Google',
+                //agePatient: '2012',
+                //idReferer: 'N/A',
+                //likes: 'soccer and nintendo',
+                //healthInsurance: 'NotreDame',
+                //healthInsuranceId: '1548650487',
+                emailPatient: getInputVal('email')
             });
-            const item_jeggings = {
-                idPatient: 'SKU_123',
-                cpfPatient: 'jeggings',
-                namePatient: 'pants',
-                phonePatient: 'pants',
-                dobPatient: 'black',
-                occupationPatient: 'Google',
-                agePatient: '2012',
-                idReferer: 'N/A',
-                likes: 'soccer and nintendo',
-                healthInsurance: 'NotreDame',
-                healthInsuranceId: '1548650487'
-            };
             analytics.logEvent('add_patient');
         }
 
